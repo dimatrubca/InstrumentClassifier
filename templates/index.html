@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Cat State Identifier</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Instrument Clasifier</h1>
+    <p>Upload an image with any* musical instrument</p>
+
+    <form id="image-form"  method="post" enctype="multipart/form-data">
+        <input  id="upload-image" 
+                class="d-none"
+                type="file"  
+                accept="image/*" 
+                name="upload-image" >
+
+        <div>
+            <label class="btn btn-outline-primary" for="upload-image" style="cursor: pointer;">Select Image</label>
+        </div>  
+        <div id='upload-label'>
+            No file chosen
+        </div>
+        <img class="invisible" id="preview-image" height="200"/>
+        
+        <div id="result" class="d-none"> </div>
+
+        <button class="analyze-btn btn btn-primary">
+            <i id="analyze-spinner" class="fa fa-circle-o-notch fa-spin d-none"></i> Analyze</button>
+
+        <p>*Supported musical instruments: Accordion, Acoustic guitar, Bagpipes, Banjo, Bass guitar, Bassoon, Bell, Bongo drum, Brass, Cello, Clarinet, Classical guitar, Cymbal, Didgeridoo, Digital piano, Double bass, Drum, Electric guitar, Electronic drum, Electronic keyboard, Flute, French horn, Harmonica, Harp, Harpsichord, Lute, Lyre, Mandolin, Marimba, Melodica, Oboe, Ocarina, Organ, Oud, Piano, Saxophone, Sitar, Snare drum, Synthesizer, Tambourine, Theremin, Trombone, Trumpet, Tuba, Ukulele, Viola, Violin, Xylophone</p>
+    </form>
+
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</div>
+{% endblock content %}
